@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>NPR RSS Feed</title>
+	<link rel="stylesheet" href="style.css">
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	
+	<h1>NPR News Feed</h1>
+
+	{% for item in parsed_list %}
+
+		<h3>{{ item['title'] }}</h3>
+
+		{% if not item['author'] == 'None' %}
+			<p>By {{ item['author'] }}</p>
+		{% endif %}
+
+		<p>{{ item['description'] }} <a href="{{ item['link'] }}" target="_blank">...read more</a></p>
+		<li>Posted on {{ item['pub_date'] }}</li>
+		<hr>
+		
+	{% endfor %}
+</body>
+</html>
