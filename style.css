@@ -17,9 +17,10 @@ div.container
 
 h1
 {
-    width: 40%;
+	display:inline-block;
+
     margin: 2rem auto;
-    padding: .7rem;
+    padding: 1rem;
 
     text-align: center;
 
@@ -33,7 +34,7 @@ div.item
 
     width: 100%;
     margin-bottom: 1.2em;
-    padding: .6rem;
+    padding: .3rem 1.5rem;
 
     background-color: #f5f1de;
     box-shadow: 5px 5px 5px #888;
