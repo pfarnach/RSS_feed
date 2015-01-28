@@ -7,21 +7,24 @@
 	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	
-	<h1>NPR News Feed</h1>
-
+	<div class="container">
+	<h1>NPR RSS Feed - {{ feed_title }}</h1>
 	{% for item in parsed_list %}
 
-		<h3>{{ item['title'] }}</h3>
+		<div class="item">
 
-		{% if not item['author'] == 'None' %}
-			<p>By {{ item['author'] }}</p>
-		{% endif %}
+			<h2>{{ item['title'] }}</h2>
 
-		<p>{{ item['description'] }} <a href="{{ item['link'] }}" target="_blank">...read more</a></p>
-		<li>Posted on {{ item['pub_date'] }}</li>
-		<hr>
+			{% if not item['author'] == 'None' %}
+				<p>By {{ item['author'] }}</p>
+			{% endif %}
+
+			<p>{{ item['description'] }} </br>
+			<a href="{{ item['link'] }}" target="_blank">>> Read more</a></p>
+			<p>Posted on {{ item['pub_date'] }}</p>
+		</div>
 		
 	{% endfor %}
+	</div>
 </body>
 </html>

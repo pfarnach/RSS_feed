@@ -5,10 +5,12 @@ import urllib2, jinja2
 import xml.etree.ElementTree as ET
 
 class NPR_feed(object):
+
 	def __init__(self, feed_ID):
 		# retrieves and reads XML file then puts it into XML format for given RSS ID
 		self._xml_response = urllib2.urlopen('http://www.npr.org/rss/rss.php?id=%s' % feed_ID).read()
 		self._xml_root = ET.fromstring(self._xml_response)
+		# self._xml_root[0][0].text
 
 
 	def parse_xml(self):
@@ -56,13 +58,14 @@ class NPR_feed(object):
 		# Using a template file. Load template files from the current directory
 		env = jinja2.Environment(loader=jinja2.FileSystemLoader('.'))
 		tp = env.get_template('RSS_feed.html')
-		output_list = tp.render(parsed_list = parsed_list)
+		output_list = tp.render(parsed_list = parsed_list, feed_title = self._xml_root[0][0].text)
 
 		with open('test.html', 'wb') as output:
 			output.write(output_list)
 
 
 def main():
+	print "\nSome popular IDs include:\n1001 - News Headlines\n1008 - Arts & Culture\n1057 - Opinion\n1003 - US News\n1004 - World News\n2 - All Things Considered\n37 - All Songs Considered"
 	feed_ID = raw_input("\n>>Please enter an NPR Feed ID: ").strip()
 	feed = NPR_feed(feed_ID)
 	feed.parse_xml()

@@ -1,21 +1,67 @@
-html, body {
-	margin: 0 0 0 15px;
-	padding: 0;
-	font-family: 'Roboto', sans-serif;
-	background-color: #DEE5E5;
+html,
+body
+{
+    font-family: 'Roboto', sans-serif;
+
+    margin: 0;
+    padding: 0;
+
+    background-color: #afd6e7;
 }
 
-h3 {
-	font-weight: bold;
-	margin-top:30px;
+div.container
+{
+    width: 70%;
+    margin: 2em auto;
 }
 
-h3 > p {
-	margin-top: 5px;
+h1
+{
+    width: 40%;
+    margin: 2rem auto;
+    padding: .7rem;
+
+    text-align: center;
+
+    background-color: #f5f1de;
+    box-shadow: 5px 5px 5px #888;
 }
 
-hr {
-	width: 90%;
-	margin-left: 0;
-	margin-top: 30px;
+div.item
+{
+    display: block;
+
+    width: 100%;
+    margin-bottom: 1.2em;
+    padding: .6rem;
+
+    background-color: #f5f1de;
+    box-shadow: 5px 5px 5px #888;
+}
+
+h3
+{
+    font-weight: bold;
+
+    margin-top: 30px;
+}
+
+h3 > p
+{
+    margin-top: 5px;
+}
+
+h2 > p
+{
+    margin-top: 0;
+}
+
+h2
+{
+    margin-bottom: 0;
+}
+
+a:hover
+{
+    color: red;
 }
